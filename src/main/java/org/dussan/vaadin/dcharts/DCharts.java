@@ -178,7 +178,7 @@ public class DCharts extends AbstractSingleComponentContainer {
 	}
 
 	private StreamResource getChartResource() {
-		return new StreamResource(new StreamSource() {
+		StreamResource resource = new StreamResource(new StreamSource() {
 			private static final long serialVersionUID = -6463786579404065303L;
 
 			@Override
@@ -193,6 +193,8 @@ public class DCharts extends AbstractSingleComponentContainer {
 				}
 			}
 		}, getDownloadFilename() + getChartImageFormat().getFormatExtension());
+		resource.setCacheTime(0);
+		return resource;
 	}
 
 	private void addChartContainer() {
